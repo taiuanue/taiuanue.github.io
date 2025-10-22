@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>七年19班名姓唸法</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0; /* 移除預設的 body margin */
+            background-color: #f4f4f4;
+            color: #333;
+            padding-top: 80px; /* 為固定標題預留空間 */
+        }
+        .header-container {
+            position: fixed; /* 固定在視窗頂部 */
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000; /* 確保在其他內容之上 */
+            padding: 10px 0;
+        }
+        h1 {
+            color: #0056b3;
+            text-align: center;
+            margin: 0; /* 移除h1的預設margin */
+            padding: 10px 0;
+        }
+        table {
+            width: 90%;
+            margin: 20px auto; /* 調整表格上方間距，避免被固定標題覆蓋 */
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        thead th {
+            position: sticky; /* 使表格標題列固定 */
+            top: 70px; /* 這裡的值需要根據主標題的高度調整，讓它在主標題下方固定 */
+            background-color: #e2e2e2;
+            color: #555;
+            z-index: 999; /* 確保在表格內容之上，但在主標題之下 */
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .play-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 0;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .play-button:hover {
+            background-color: #218838;
+        }
+		.play-button2 {
+            background-color: #A048B8;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 0;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .play-button2:hover {
+            background-color: #8C3FA6;
+        }
+        audio {
+            display: none; /* 隱藏音頻播放器 */
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <h1>七年19班名姓唸法</h1>
+	</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>座號</th>
+                    <th>姓名</th>
+                    <th>羅馬字</th>
+                    <th>電腦調唸毋著</th>
+                    <th>播放</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be inserted here by JavaScript -->
+            </tbody>
+        </table>
+
+
+    <script>
+        const studentData = [
+            { "座號": 1, "姓名": "吳沐恩", "羅馬字": "Ngôo Bo̍k-un", "電腦調唸毋著": "un" },
+            { "座號": 2, "姓名": "李宇承", "羅馬字": "Lí Ú-sîng", "電腦調唸毋著": "Lí Ú-sîng" },
+            { "座號": 4, "姓名": "李庭瑋", "羅馬字": "Lí Tîng-uí", "電腦調唸毋著": "" },
+            { "座號": 5, "姓名": "林嵩惟", "羅馬字": "Lîm Siong-uî", "電腦調唸毋著": "uî" },
+            { "座號": 6, "姓名": "洪國棠", "羅馬字": "Âng Kok-tông", "電腦調唸毋著": "" },
+            { "座號": 7, "姓名": "祝翊修", "羅馬字": "Tsiok I̍k-siu", "電腦調唸毋著": "" },
+            { "座號": 8, "姓名": "陳又希", "羅馬字": "Tân Iū-hi", "電腦調唸毋著": "" },
+            { "座號": 9, "姓名": "陳品言", "羅馬字": "Tân Phín-giân", "電腦調唸毋著": "giân" },
+            { "座號": 10, "姓名": "陳韋辰", "羅馬字": "Tân Uí-sîn", "電腦調唸毋著": "sîn" },
+            { "座號": 11, "姓名": "曾于碩", "羅馬字": "Tsan Û-si̍k", "電腦調唸毋著": "" },
+            { "座號": 12, "姓名": "黃俊翔", "羅馬字": "N̂g Tsùn-siông", "電腦調唸毋著": "siông" },
+            { "座號": 13, "姓名": "楊柏彥", "羅馬字": "Iûnn Pik-gān", "電腦調唸毋著": "" },
+            { "座號": 14, "姓名": "葉昱廷", "羅馬字": "Ia̍p Io̍k-tîng", "電腦調唸毋著": "" },
+            { "座號": 15, "姓名": "蕭愷陞", "羅馬字": "Siau Khái-sing", "電腦調唸毋著": "" },
+            { "座號": 16, "姓名": "賴弘愷", "羅馬字": "Luā Hông-khái", "電腦調唸毋著": "" },
+            { "座號": 21, "姓名": "石宸甄", "羅馬字": "Tsio̍h Sîn-tsin", "電腦調唸毋著": "" },
+            { "座號": 23, "姓名": "李芊瑀", "羅馬字": "Lí Tshian-ú", "電腦調唸毋著": "" },
+            { "座號": 24, "姓名": "李翊瑄", "羅馬字": "Lí I̍k-suan", "電腦調唸毋著": "" },
+            { "座號": 25, "姓名": "高子晴", "羅馬字": "Ko Tsú-tsîng", "電腦調唸毋著": "" },
+            { "座號": 26, "姓名": "張羽淨", "羅馬字": "Tiunn Ú-tsīng", "電腦調唸毋著": "tsīng" },
+            { "座號": 27, "姓名": "陳昀希", "羅馬字": "Tân Ûn-hi", "電腦調唸毋著": "" },
+            { "座號": 29, "姓名": "曾若嘉", "羅馬字": "Tsan Jio̍k-ka", "電腦調唸毋著": "" },
+            { "座號": 30, "姓名": "賀心妍", "羅馬字": "Hō Sim-giân", "電腦調唸毋著": "giân" },
+            { "座號": 31, "姓名": "葉肜", "羅馬字": "Ia̍p Iông", "電腦調唸毋著": "Iông" },
+            { "座號": 32, "姓名": "蔡昕燁", "羅馬字": "Tshuà Him-iap", "電腦調唸毋著": "" },
+            { "座號": 33, "姓名": "蔡雨潔", "羅馬字": "Tshuà Ú-kiat", "電腦調唸毋著": "" },
+            { "座號": 34, "姓名": "賴宥岑", "羅馬字": "Luā Iū-gîm", "電腦調唸毋著": "gîm" }
+        ];
+
+        const tbody = document.querySelector('table tbody');
+        const baseUrl = "https://miasenn.ithuan.tw/taiuanue.mp3?taibun=guá sī tshit-nî tsa̍p-káu-pan.";
+
+        studentData.forEach(student => {
+            const row = tbody.insertRow();
+            row.insertCell().textContent = student["座號"];
+            row.insertCell().textContent = student["姓名"];
+            row.insertCell().textContent = student["羅馬字"];
+            row.insertCell().textContent = student["電腦調唸毋著"];
+            const playCell = row.insertCell();
+            const playButton = document.createElement('button');
+			playButton.className = 'play-button';
+            playButton.textContent = '播放';
+            playButton.onclick = () => {
+                const fullUrl = baseUrl + encodeURIComponent(student["羅馬字"]);
+                new Audio(fullUrl).play();
+            };
+            playCell.appendChild(playButton);
+
+			if (student["電腦調唸毋著"] != "") {
+			    const playButton2 = document.createElement('button');
+				playButton2.className = 'play-button2';
+				playButton2.textContent = '播放';
+				playButton2.onclick = () => {
+					const audio = new Audio("./mp3/" + "719-" + student["座號"] + ".mp3" );
+					audio.play();
+				};
+				playCell.appendChild(playButton2);
+			}	
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>七年15班名姓唸法</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0; /* 移除預設的 body margin */
+            background-color: #f4f4f4;
+            color: #333;
+            padding-top: 80px; /* 為固定標題預留空間 */
+        }
+        .header-container {
+            position: fixed; /* 固定在視窗頂部 */
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000; /* 確保在其他內容之上 */
+            padding: 10px 0;
+        }
+        h1 {
+            color: #0056b3;
+            text-align: center;
+            margin: 0; /* 移除h1的預設margin */
+            padding: 10px 0;
+        }
+        table {
+            width: 90%;
+            margin: 20px auto; /* 調整表格上方間距，避免被固定標題覆蓋 */
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        thead th {
+            position: sticky; /* 使表格標題列固定 */
+            top: 70px; /* 這裡的值需要根據主標題的高度調整，讓它在主標題下方固定 */
+            background-color: #e2e2e2;
+            color: #555;
+            z-index: 999; /* 確保在表格內容之上，但在主標題之下 */
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .play-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 0;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .play-button:hover {
+            background-color: #218838;
+        }
+		.play-button2 {
+            background-color: #A048B8;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 0;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .play-button2:hover {
+            background-color: #8C3FA6;
+        }
+        audio {
+            display: none; /* 隱藏音頻播放器 */
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <h1>七年15班名姓唸法</h1>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>座號</th>
+                <th>姓名</th>
+                <th>羅馬字</th>
+                <th>電腦調唸毋著</th>
+                <th>播放</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 學生資料將由JavaScript動態載入 -->
+        </tbody>
+    </table>
+
+    <script>
+        const studentsData = [
+            { "座號": 1, "姓名": "王有誌", "羅馬字": "Ông Iú-tsì", "電腦調唸毋著": "" },
+            { "座號": 2, "姓名": "江承叡", "羅馬字": "Kang Sîng-juē", "電腦調唸毋著": "" },
+            { "座號": 3, "姓名": "李東育", "羅馬字": "Lí Tong-io̍k", "電腦調唸毋著": "" },
+            { "座號": 4, "姓名": "周靖哲", "羅馬字": "Tsiu Tsīng-tiat", "電腦調唸毋著": "" },
+            { "座號": 5, "姓名": "林上雲", "羅馬字": "Lîm Siōng-hûn", "電腦調唸毋著": "" },
+            { "座號": 6, "姓名": "林尚為", "羅馬字": "Lîm Siōng-uî", "電腦調唸毋著": "" },
+            { "座號": 7, "姓名": "洪崇嵂", "羅馬字": "Âng Tsông-lu̍t", "電腦調唸毋著": "" },
+            { "座號": 8, "姓名": "莊承瀚", "羅馬字": "Tsng Sîng-hān", "電腦調唸毋著": "" },
+            { "座號": 9, "姓名": "許明曜", "羅馬字": "Khóo Bîng-iāu", "電腦調唸毋著": "iāu" },
+            { "座號": 10, "姓名": "郭滕軒", "羅馬字": "Kueh Tîng-hian", "電腦調唸毋著": "" },
+            { "座號": 11, "姓名": "馮道元", "羅馬字": "Pâng Tō-guân", "電腦調唸毋著": "" },
+            { "座號": 12, "姓名": "詹承哲", "羅馬字": "Tsiam Sîng-tiat", "電腦調唸毋著": "Sîng" },
+            { "座號": 13, "姓名": "劉諺烜", "羅馬字": "Lâu Gān-suan", "電腦調唸毋著": "suan" },
+            { "座號": 14, "姓名": "蔡知曄", "羅馬字": "Tshuà Ti-iap", "電腦調唸毋著": "" },
+            { "座號": 15, "姓名": "蕭霆愷", "羅馬字": "Siau Tîng-khái", "電腦調唸毋著": "" },
+            { "座號": 16, "姓名": "魏靖恩", "羅馬字": "Guī Tsīng-un", "電腦調唸毋著": "" },
+            { "座號": 17, "姓名": "蘇桓霆", "羅馬字": "Soo Huân-tîng", "電腦調唸毋著": "" },
+            { "座號": 21, "姓名": "丁禹杉", "羅馬字": "Ting Ú-sam", "電腦調唸毋著": "Ting" },
+            { "座號": 22, "姓名": "王又立", "羅馬字": "Ông Iū-li̍p", "電腦調唸毋著": "" },
+            { "座號": 23, "姓名": "王奕涵", "羅馬字": "Ông I̍k-hâm", "電腦調唸毋著": "" },
+            { "座號": 24, "姓名": "江旻璇", "羅馬字": "Kang Bûn-suân", "電腦調唸毋著": "" },
+            { "座號": 25, "姓名": "吳侑珊", "羅馬字": "Ngôo Iū-san", "電腦調唸毋著": "" },
+            { "座號": 26, "姓名": "邱奕晨", "羅馬字": "Khu I̍k-sîn", "電腦調唸毋著": "" },
+            { "座號": 27, "姓名": "陳宥榕", "羅馬字": "Tân Iū-iông", "電腦調唸毋著": "" },
+            { "座號": 28, "姓名": "陳詠心", "羅馬字": "Tân Īng-sim", "電腦調唸毋著": "" },
+            { "座號": 29, "姓名": "游予慈", "羅馬字": "Iû Ú-tsû", "電腦調唸毋著": "tsû" },
+            { "座號": 30, "姓名": "楊欣澄", "羅馬字": "Iûnn Him-tîng", "電腦調唸毋著": "" },
+            { "座號": 31, "姓名": "董宣頤", "羅馬字": "Táng Suan-î", "電腦調唸毋著": "î" },
+            { "座號": 32, "姓名": "劉沛顬", "羅馬字": "Lâu Phài-jû", "電腦調唸毋著": "jû" },
+            { "座號": 33, "姓名": "劉珞甯", "羅馬字": "Lâu Lo̍k-lîng", "電腦調唸毋著": "" },
+            { "座號": 34, "姓名": "羅詠蓁", "羅馬字": "Lô Īng-tsin", "電腦調唸毋著": "" }
+        ];
+
+        const tbody = document.querySelector('table tbody');
+        // 固定的開頭語句，已更改為七年15班
+        const introText = "guá sī tshit-nî tsa̍p-gōo-pan.";
+        const audioBaseUrl = "https://miasenn.ithuan.tw/taiuanue.mp3?taibun=";
+
+        studentsData.forEach(student => {
+            const row = tbody.insertRow();
+            row.insertCell().textContent = student["座號"];
+            row.insertCell().textContent = student["姓名"];
+            row.insertCell().textContent = student["羅馬字"];
+            row.insertCell().textContent = student["電腦調唸毋著"]; // 新增的欄位
+            const playCell = row.insertCell();
+            const playButton = document.createElement('button');
+            playButton.className = 'play-button';
+            playButton.textContent = '播放';
+            playButton.onclick = () => {
+                // 將固定開頭和學生羅馬字組合起來
+                const fullRomanization = introText + student["羅馬字"];
+                const audio = new Audio(audioBaseUrl + encodeURIComponent(fullRomanization));
+                audio.play();
+            };
+            playCell.appendChild(playButton);
+
+			if (student["電腦調唸毋著"] != "") {
+			    const playButton2 = document.createElement('button');
+				playButton2.className = 'play-button2';
+				playButton2.textContent = '播放';
+				playButton2.onclick = () => {
+					const audio = new Audio("./mp3/" + "715-" + student["座號"] + ".mp3" );
+					audio.play();
+				};
+				playCell.appendChild(playButton2);
+			}				
+			
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台語座號唸法</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px; /* Limit container width for better readability */
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            position: sticky;
+            top: 0;
+            background-color: #fff;
+            padding: 10px 0;
+            z-index: 100;
+            border-bottom: 1px solid #eee;
+        }
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr); /* 6 columns, equal width */
+            gap: 25px; /* Increased space between buttons */
+            justify-content: center;
+            padding-top: 20px;
+        }
+        .play-button {
+            padding: 15px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            text-align: center;
+            line-height: 1.4; /* For better spacing between two lines of text */
+            display: flex; /* Use flexbox for vertical centering */
+            flex-direction: column; /* Stack text vertically */
+            justify-content: center; /* Center content vertically */
+            align-items: center; /* Center content horizontally */
+            height: 70px; /* Fixed height for buttons, adjust as needed */
+        }
+        .play-button:hover {
+            background-color: #0056b3;
+        }
+        .button-text-top {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .button-text-bottom {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>台語座號唸法</h1>
+        <div class="button-grid">
+            <!-- Buttons will be inserted here by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        const numData = [
+            { "座號": "1號", "台語": "It-hō" },
+            { "座號": "2號", "台語": "Jī-hō" },
+            { "座號": "3號", "台語": "Sann-hō" },
+            { "座號": "4號", "台語": "Sì-hō" },
+            { "座號": "5號", "台語": "Gōo-hō" },
+            { "座號": "6號", "台語": "La̍k-hō" },
+            { "座號": "7號", "台語": "tshit-hō" },
+            { "座號": "8號", "台語": "Peh-hō" },
+            { "座號": "9號", "台語": "Káu-hō" },
+            { "座號": "10號", "台語": "Tsa̍p-hō" },
+            { "座號": "11號", "台語": "Tsa̍p-it-hō" },
+            { "座號": "12號", "台語": "Tsa̍p-jī-hō" },
+            { "座號": "13號", "台語": "Tsa̍p-sann-hō" },
+            { "座號": "14號", "台語": "Tsa̍p-sì-hō" },
+            { "座號": "15號", "台語": "Tsa̍p-gōo-hō" },
+            { "座號": "16號", "台語": "Tsa̍p-la̍k-hō" },
+            { "座號": "17號", "台語": "Tsa̍p-tshit-hō" },
+            { "座號": "18號", "台語": "Tsa̍p-peh-hō" },
+            { "座號": "19號", "台語": "Tsa̍p-káu-hō" },
+            { "座號": "20號", "台語": "Jī-tsa̍p-hō" },
+            { "座號": "21號", "台語": "Jī-tsa̍p-it-hō" },
+            { "座號": "22號", "台語": "Jī-tsa̍p-jī-hō" },
+            { "座號": "23號", "台語": "Jī-tsa̍p-sann-hō" },
+            { "座號": "24號", "台語": "Jī-tsa̍p-sì-hō" },
+            { "座號": "25號", "台語": "Jī-tsa̍p-gōo-hō" },
+            { "座號": "26號", "台語": "Jī-tsa̍p-la̍k-hō" },
+            { "座號": "27號", "台語": "Jī-tsa̍p-tshit-hō" },
+            { "座號": "28號", "台語": "Jī-tsa̍p-peh-hō" },
+            { "座號": "29號", "台語": "Jī-tsa̍p-káu-hō" },
+            { "座號": "30號", "台語": "Sann-tsa̍p-hō" },
+            { "座號": "31號", "台語": "Sann-tsa̍p-it-hō" },
+            { "座號": "32號", "台語": "Sann-tsa̍p-jī-hō" },
+            { "座號": "33號", "台語": "Sann-tsa̍p-sann-hō" },
+            { "座號": "34號", "台語": "Sann-tsa̍p-sì-hō" },
+            { "座號": "35號", "台語": "Sann-tsa̍p-gōo-hō" },
+            { "座號": "36號", "台語": "Sann-tsa̍p-la̍k-hō" }
+        ];
+
+        const buttonGrid = document.querySelector('.button-grid');
+        const localMp3Dir = "./mp3/"; // 本地 mp3 檔案的目錄
+
+        numData.forEach(item => {
+            const playButton = document.createElement('button');
+            playButton.classList.add('play-button');
+            
+            // 創建兩行文字的 span 元素
+            const textTop = document.createElement('span');
+            textTop.classList.add('button-text-top');
+            textTop.textContent = item["座號"];
+            playButton.appendChild(textTop);
+
+            const textBottom = document.createElement('span');
+            textBottom.classList.add('button-text-bottom');
+            textBottom.textContent = item["台語"];
+            playButton.appendChild(textBottom);
+
+            playButton.onclick = () => {
+                // 構建本地 mp3 檔案路徑，例如 "./mp3/1號.mp3"
+                // 這裡假設 mp3 檔案名稱與 CSV 中的「座號」完全一致
+                const mp3FileName = item["座號"] + ".mp3";
+                const fullLocalMp3Url = localMp3Dir + mp3FileName;
+                
+                new Audio(fullLocalMp3Url).play();
+            };
+            buttonGrid.appendChild(playButton);
+        });
+    </script>
+</body>
+</html>
