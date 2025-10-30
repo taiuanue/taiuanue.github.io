@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你的生日佇幾月？</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+        }
+        h1 {
+            color: #0056b3;
+            margin-bottom: 30px;
+        }
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* 自動調整列數 */
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .month-button {
+            background-color: #4CAF50; /* 綠色 */
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .month-button:hover {
+            background-color: #45a049;
+        }
+        .month-button:active {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <h1>你的生日佇幾月？</h1>
+
+    <div class="button-container">
+        <button class="month-button" onclick="playAudio('g1.mp3')">一月</button>
+        <button class="month-button" onclick="playAudio('g2.mp3')">二月</button>
+        <button class="month-button" onclick="playAudio('g3.mp3')">三月</button>
+        <button class="month-button" onclick="playAudio('g4.mp3')">四月</button>
+        <button class="month-button" onclick="playAudio('g5.mp3')">五月</button>
+        <button class="month-button" onclick="playAudio('g6.mp3')">六月</button>
+        <button class="month-button" onclick="playAudio('g7.mp3')">七月</button>
+        <button class="month-button" onclick="playAudio('g8.mp3')">八月</button>
+        <button class="month-button" onclick="playAudio('g9.mp3')">九月</button>
+        <button class="month-button" onclick="playAudio('g10.mp3')">十月</button>
+        <button class="month-button" onclick="playAudio('g11.mp3')">十一月</button>
+        <button class="month-button" onclick="playAudio('g12.mp3')">十二月</button>
+    </div>
+
+    <script>
+        function playAudio(filename) {
+            // 創建一個新的 Audio 物件
+            const audio = new Audio(`./mp3/${filename}`);
+            // 播放音檔
+            audio.play()
+                 .catch(error => console.error("音檔播放失敗:", error)); // 捕捉潛在的播放錯誤
+        }
+    </script>
+</body>
+</html>
